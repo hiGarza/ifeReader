@@ -6,8 +6,8 @@ require 'json'
 require 'net/http'
 
 s3 = Aws::S3::Resource.new(
-  access_key_id: 'AKIAITKWFBPFD5CSOPFA',
-  secret_access_key: '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',
+  access_key_id: '',
+  secret_access_key: '',
   region: 'us-west-1'
 )
 
@@ -21,7 +21,7 @@ s3 = Aws::S3::Resource.new(
     	h = page.xobjects[:im4].hash[:Height]
     	File.open("temp.jpg", "wb") { |file| file.write page.xobjects[:im4].data }
 		person[:keyDate] = Date.today
-    person[:access] = DateTime.now
+    	person[:access] = DateTime.now
 
 		# person[:date]= page.text.scan(/Capture Date and Time:.*/)[0].sub(/Capture Date and Time:/, '').strip
 		person[:doc_type]= page.text.scan(/Document Type:.*/)[0].sub(/Document Type:/, '').strip

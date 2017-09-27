@@ -1,0 +1,48 @@
+
+<div class="panel panel-default">
+	<div class="panel-heading">{{!person.exit?"Entrada":"Salida"}}</div>
+	<div class="panel-body row">
+		<img class="img-thumbnail col-md-2 col-md-offset-1" src="static/{{person.image}}" >
+		<div class="col-md-7 col-md-offset-1">
+			<div class="form-group">
+				<div class="input-group">
+				  <span class="input-group-addon" id="sizing-addon2">Tipo de Credencial:</span>
+				  <input type="text" class="form-control" ng-model="person.doc_type" disabled="true">
+				</div>
+				<div class="input-group">
+				  <span class="input-group-addon" id="sizing-addon2">Nombre:</span>
+				  <input type="text" class="form-control" ng-model="person.name" disabled="true">
+				</div>
+				<div class="input-group">
+				  <span class="input-group-addon" id="sizing-addon2">Fecha de Nacimiento:</span>
+				  <input type="text" class="form-control" ng-model="person.birthdate" disabled="true">
+				</div>
+				<div class="input-group">
+				  <span class="input-group-addon" id="sizing-addon2">Genero:</span>
+				  <input type="text" class="form-control" ng-model="person.gender" disabled="true">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="input-group">
+				  <span class="input-group-addon" id="sizing-addon2">Area:</span>
+				  <input type="text" class="form-control" ng-model="person.area">
+				</div>
+				<div class="input-group">
+				  <span class="input-group-addon" id="sizing-addon2">Visita a:</span>
+				  <input type="text" class="form-control" ng-model="person.visit">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="input-group">
+				  <span class="input-group-addon" id="sizing-addon2">Fecha de {{!person.exit?"Entrada":"Salida"}}:</span>
+				  <input type="text" class="form-control" disabled="true" value="{{person.date.toString().substring(4, 15)}}">
+				</div>
+				<div class="input-group">
+				  <span class="input-group-addon" id="sizing-addon2">Hora de {{!person.exit?"Entrada":"Salida"}}</span>
+				  <input type="text" class="form-control" disabled="true" value="{{person.date.toString().substring(16, 21)}}">
+				</div>
+			</div>
+			<button type="button" class="btn btn-primary pull-right">Guardar</button>
+		</div>
+	</div>
+</div>
