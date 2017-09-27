@@ -7,8 +7,7 @@ eqApp.controller('mainController', function($rootScope, $scope, $http) {
 		$scope.person.date = new Date($scope.person.access);
 		console.log($scope.person.date);
 		console.log(typeof $scope.person.date);
-		$scope.person.image = "temp.jpg"
-		$scope.person.exit = false;
+		$scope.person.image = $scope.person.userID+".jpg"
 		$scope.$apply();
 	}
 });

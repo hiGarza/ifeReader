@@ -22,7 +22,7 @@
 				  <input type="text" class="form-control" ng-model="person.gender" disabled="true">
 				</div>
 			</div>
-			<div class="form-group">
+			<div class="form-group" ng-show="!person.exit">
 				<div class="input-group">
 				  <span class="input-group-addon" id="sizing-addon2">Area:</span>
 				  <input type="text" class="form-control" ng-model="person.area">

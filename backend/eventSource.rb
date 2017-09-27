@@ -24,11 +24,6 @@ listener = Listen.to('/Users/humberto/Desktop/listen') do |modified, added, remo
     person = {}
     reader = PDF::Reader.new(added[0].to_s)
     reader.pages.each do |page|
-
-      w = page.xobjects[:im4].hash[:Width]
-      h = page.xobjects[:im4].hash[:Height]
-      File.open("/Users/humberto/Desktop/ifeReader/frontEnd/static/temp.jpg", "wb") { |file| file.write page.xobjects[:im4].data }
-
       person[:keyDate] = Date.today
       person[:access] = DateTime.now
 
@@ -41,7 +36,19 @@ listener = Listen.to('/Users/humberto/Desktop/listen') do |modified, added, remo
       person[:age]= page.text.scan(/Age:.*/)[0].sub(/Age:/, '').sub(/Hair Color:/, '').strip
       person[:gender]= page.text.scan(/Gender:.*/)[0].sub(/Gender:/, '').sub(/Eye Color:/, '').strip
       person[:userID] = Digest::SHA1.hexdigest(person[:name]+person[:birthdate])
-      person[:company] = "etc"
+      person[:company] = "etc" # Cambiar por nombre de la empresa en config file
+
+      w = page.xobjects[:im4].hash[:Width]
+      h = page.xobjects[:im4].hash[:Height]
+      File.open("/Users/humberto/Desktop/ifeReader/frontEnd/static/#{person[:userID]}.jpg", "wb") { |file| file.write page.xobjects[:im4].data }
+
+      unless saved.include?(person[:userID])
+        saved.push(person[:userID])
+        person[:exit]= false
+      else
+        saved.delete(person[:userID])
+        person[:exit]= true
+      end
     end
 
     es.send(person.to_json.to_s)
