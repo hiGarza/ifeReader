@@ -1,5 +1,6 @@
 eqApp.controller('mainController', function($rootScope, $scope, $http) {
 	$scope.person = {image:"placeholder.jpg"};
+	console.log($scope.person.userID);
     var evtSource = new EventSource("//127.0.0.1:8080");
     evtSource.onmessage = function(e) {
 		$scope.person = JSON.parse(e.data);
@@ -10,4 +11,10 @@ eqApp.controller('mainController', function($rootScope, $scope, $http) {
 		$scope.person.image = $scope.person.userID+".jpg"
 		$scope.$apply();
 	}
+
+	$scope.save = function(){
+		if($scope.person.userID !== undefined){
+			$scope.person = {image:"placeholder.jpg"};
+		}
+	};
 });

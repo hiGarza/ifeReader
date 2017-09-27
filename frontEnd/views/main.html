@@ -42,7 +42,7 @@
 				  <input type="text" class="form-control" disabled="true" value="{{person.date.toString().substring(16, 21)}}">
 				</div>
 			</div>
-			<button type="button" class="btn btn-primary pull-right">Guardar</button>
+			<button type="button" class="btn btn-primary pull-right" ng-class="{disabled: person.userID === undefined}" ng-click="save()">Guardar</button>
 		</div>
 	</div>
 </div>
