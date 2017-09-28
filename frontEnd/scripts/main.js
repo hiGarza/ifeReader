@@ -6,4 +6,8 @@ eqApp.config(function($routeProvider) {
             templateUrl : 'views/main.html',
             controller  : 'mainController'
         })
+        .when('/report', {
+            templateUrl : 'views/report.html',
+            controller  : 'reportController'
+        })
 });

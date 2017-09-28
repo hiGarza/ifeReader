@@ -1,0 +1,34 @@
+<div class="row">
+<div class="input-group col-md-4">
+	<span class="input-group-addon" id="sizing-addon2">Fecha:</span>
+	<input type="text" class="form-control" ng-model="searchDate">
+</div>
+<button type="button" class="btn btn-primary" ng-click="getReport()">Buscar</button>
+</div>
+</br>
+
+<div class="panel-group" id="accordion">
+    <div ng-repeat="person in accessList" class="panel panel-default">
+        <div class="panel-heading">
+        <h4 class="panel-title">
+        	<a data-toggle="collapse" data-target="#{{person.userID}}">{{person.name}}</a>
+        	<span class="badge pull-right" ng-class="{red: person.accessLog[0].exit === null}">{{person.accessLog.length}}</span></a>
+      	</h4>
+        </div>
+        <div id="{{person.userID}}" class="panel-collapse collapse">
+        	<div class="row">
+        		<img class="img-thumbnail col-md-2 col-md-offset-1" ng-src="static/{{person.userID}}.jpg" >
+        		<div class="col-md-4 col-md-offset-1">
+        			<p><b>Documento: </b> {{person.doc_type}}</p>
+        			<p><b>Fecha de Nacimiento: </b> {{person.birthdate}}</p>
+        			<p><b>Genero: </b> {{person.gender}}</p>
+        		</div>
+        	</div>
+        	<ul class="list-group">
+			  <li ng-repeat="access in person.accessLog" class="list-group-item">
+			  	<span><b>Area: </b>{{access.area}} <b>Visita: </b>{{access.visit}} <b>Hora de Entrada: </b>{{access.enter}} <b>Hora de Salida: </b>{{access.exit}}</span>
+			  </li>
+			</ul>
+        </div>
+    </div>
+</div>

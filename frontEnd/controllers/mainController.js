@@ -1,7 +1,7 @@
 eqApp.controller('mainController', function($rootScope, $scope, $http) {
 	$scope.person = {image:"placeholder.jpg"};
-    var evtSource = new EventSource("//127.0.0.1:8080");
-    evtSource.onmessage = function(e) {
+    $scope.evtSource = new EventSource("//127.0.0.1:8080");
+    $scope.evtSource.onmessage = function(e) {
 		$scope.person = JSON.parse(e.data);
 		var date = "";
 		$scope.person.date = new Date($scope.person.access);

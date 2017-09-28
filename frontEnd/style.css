@@ -10,3 +10,7 @@
 .form-group{
 	margin-bottom: 15px;
 }
+
+.panel-default>.panel-heading .badge.red{
+	background-color: #ff0033;
+}
