@@ -25,7 +25,7 @@
         		</div>
         	</div>
         	<ul class="list-group">
-			  <li ng-repeat="access in person.accessLog" class="list-group-item">
+			  <li ng-repeat="access in person.accessLog" class="list-group-item" ng-class="{'list-group-item-danger': access.exit === null}">
 			  	<span><b>Area: </b>{{access.area}} <b>Visita: </b>{{access.visit}} <b>Hora de Entrada: </b>{{access.enter}} <b>Hora de Salida: </b>{{access.exit}}</span>
 			  </li>
 			</ul>
