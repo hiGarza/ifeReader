@@ -21,5 +21,5 @@ gem install faye-websocket
 gem install listen
 gem install pdf-reader
 
-cd /vagrant/project/frontEnd
+cd /vagrant/project/backend
 thin -p 8080 start -d
