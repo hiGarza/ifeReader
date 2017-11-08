@@ -8,7 +8,7 @@ Vagrant.configure("2") do |config|
 
   
   config.vm.network "forwarded_port", guest: 80, host: 8000
-  # config.vm.network "forwarded_port", guest: 5678, host: 8080
+  config.vm.network "forwarded_port", guest: 8080, host: 8080
 
   config.vm.provision :shell, path: "./provision/bootstrap.sh"
   config.vm.synced_folder "project/", "/home/vagrant/project"
