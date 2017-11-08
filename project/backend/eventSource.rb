@@ -19,7 +19,7 @@ App = lambda do |env|
   end
 end
 
-listener = Listen.to('/Users/humberto/Desktop/listen') do |modified, added, removed|
+listener = Listen.to('/home/vagrant/project/listen', {:force_polling => true}) do |modified, added, removed|
   if added.length > 0
     person = {}
     reader = PDF::Reader.new(added[0].to_s)
@@ -40,7 +40,7 @@ listener = Listen.to('/Users/humberto/Desktop/listen') do |modified, added, remo
 
       w = page.xobjects[:im4].hash[:Width]
       h = page.xobjects[:im4].hash[:Height]
-      File.open("/Users/humberto/Desktop/ifeReader/frontEnd/static/#{person[:userID]}.jpg", "wb") { |file| file.write page.xobjects[:im4].data }
+      File.open("/home/vagrant/project/frontEnd/static/#{person[:userID]}.jpg", "wb") { |file| file.write page.xobjects[:im4].data }
 
       unless saved.include?(person[:userID])
         saved.push(person[:userID])
