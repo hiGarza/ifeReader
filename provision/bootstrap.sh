@@ -23,3 +23,5 @@ gem install pdf-reader
 
 cd /vagrant/project/backend
 thin -p 8080 start -d
+
+echo "DONE"
