@@ -1,2 +1,4 @@
 .vagrant
 frontend/static/*
+project/backend/log
+project/backend/tmp
